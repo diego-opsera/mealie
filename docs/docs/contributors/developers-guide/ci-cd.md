@@ -41,3 +41,12 @@ GitHub PR / Push event
 
 `pull-requests.yml` and `nightly.yml` use `workflow_dispatch` as their sole trigger.
 They can be run manually from the GitHub Actions tab using the **Run workflow** button.
+
+## Troubleshooting webhooks
+
+If the Opsera pipeline does not trigger automatically on a PR event:
+
+1. **Check webhook delivery** — GitHub repo → Settings → Webhooks → click the Opsera webhook → Recent Deliveries. A green check with a `200` response means GitHub delivered the event successfully.
+2. **Check the pipeline is active** — In Opsera, confirm the pipeline status is **Active**, not Draft.
+3. **Check the workflow target** — In the Opsera step config, confirm the selected workflow is `pull-requests.yml` (PR pipeline) or `nightly.yml` (deploy pipeline), not another workflow file.
+4. **Check branch protection** — GitHub repo → Settings → Branches → `main`. The required status check `Opsera PR Validation` must be listed and the Opsera pipeline must be active for it to report.
