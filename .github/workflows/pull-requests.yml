@@ -1,3 +1,4 @@
+# Triggered via Opsera webhook → workflow_dispatch
 name: PR CI
 
 on:
