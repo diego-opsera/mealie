@@ -1,23 +1,7 @@
 name: PR CI
 
 on:
-  pull_request:
-    branches:
-      - main
-    paths-ignore:
-      - '*.md'
-      - 'docs/**'
-      - '.vscode/**'
-      - '.devcontainer/**'
-  merge_group:
-    types: [checks_requested]
-    branches:
-      - main
-    paths-ignore:
-      - '*.md'
-      - 'docs/**'
-      - '.vscode/**'
-      - '.devcontainer/**'
+  workflow_dispatch:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.event.merge_group.head_ref }}
