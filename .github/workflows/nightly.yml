@@ -3,7 +3,7 @@ name: Docker Nightly Production
 on:
   push:
     branches:
-      - mealie-next
+      - main
     paths-ignore:
       - '*.md'
       - '.devcontainer/**'
@@ -26,6 +26,7 @@ jobs:
 
   build-package:
     name: Build Package
+    needs: [backend-tests, frontend-tests]
     uses: ./.github/workflows/build-package.yml
     with:
       tag: nightly

@@ -3,11 +3,21 @@ name: PR CI
 on:
   pull_request:
     branches:
-      - mealie-next
+      - main
+    paths-ignore:
+      - '*.md'
+      - 'docs/**'
+      - '.vscode/**'
+      - '.devcontainer/**'
   merge_group:
     types: [checks_requested]
     branches:
-      - mealie-next
+      - main
+    paths-ignore:
+      - '*.md'
+      - 'docs/**'
+      - '.vscode/**'
+      - '.devcontainer/**'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.event.merge_group.head_ref }}

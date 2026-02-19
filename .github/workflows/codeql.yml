@@ -13,7 +13,7 @@ name: "CodeQL"
 
 on:
   push:
-    branches: [ "mealie-next" ]
+    branches: [ "main" ]
   schedule:
     - cron: '36 9 * * 3'
   workflow_call:
